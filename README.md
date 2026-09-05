@@ -69,7 +69,7 @@ npm run dev
 ├── tests/                       # API 集成测试、浏览器端到端测试
 ├── docs/                        # 架构、API、设计、部署说明和实拍截图
 ├── deployment/                  # 容器与 Supervisor 示例
-├── deployment/github-actions/ci.yml # 可启用的持续集成模板
+├── .github/workflows/ci.yml      # 自动测试工作流
 ├── .env.example
 ├── package.json
 └── tsconfig.json
@@ -114,6 +114,8 @@ API 测试使用独立临时数据库；端到端测试启动独立的 3103 端�
 
 部署与扩展细节见 [部署说明](docs/deployment.md)、[架构说明](docs/architecture.md)、[API 文档](docs/api.md)、[设计说明](docs/design.md)。
 
-## 启用 GitHub Actions
+## GitHub Actions
 
-上传时的 GitHub 授权不包含 `workflow` 权限，因此 CI 配置保存在 `deployment/github-actions/ci.yml`。取得工作流写入权限后，将此文件移动到 `.github/workflows/ci.yml` 并提交即可启用自动检查。模板包含安装 FFmpeg、格式检查、API 测试、构建和浏览器测试。
+工作流位于 `.github/workflows/ci.yml`，推送和 Pull Request 时自动运行。检查包括安装 FFmpeg、代码格式、API 测试、前后端构建和浏览器测试。失败时保存 Playwright 报告，便于定位问题。
+
+[查看自动测试结果](https://github.com/witnessGIT/costage/actions)
