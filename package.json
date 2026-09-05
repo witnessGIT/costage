@@ -1,0 +1,56 @@
+{
+  "name": "costage",
+  "version": "0.1.0",
+  "description": "共场 CoStage — 创作与共创直播社区",
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "tsx watch apps/server/src/index.ts",
+    "dev:web": "vite apps/web --config apps/web/vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && npm run build:web && npm run build:server",
+    "start": "node dist/apps/server/src/index.js",
+    "test": "tsx --test tests/api.test.ts",
+    "test:e2e": "playwright test",
+    "build:web": "vite build apps/web --config apps/web/vite.config.ts",
+    "build:server": "tsc -p apps/server/tsconfig.build.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "hls.js": "^1.7.2",
+    "lucide-react": "^1.41.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.3",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

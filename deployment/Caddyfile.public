@@ -1,0 +1,9 @@
+{
+  admin off
+  auto_https off
+}
+:10200 {
+  reverse_proxy 127.0.0.1:3001 {
+    header_up X-Forwarded-For {remote_host}
+  }
+}

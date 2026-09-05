@@ -1,0 +1,20 @@
+:root {
+  --bg: #f8f9f5;
+  --surface: #fff;
+  --ink: #252b25;
+  --muted: #858a7f;
+  --line: #e7e9e1;
+  --accent: #d7f66b;
+  --accent-soft: #edf6d8;
+  --green: #55733c;
+  --radius: 14px;
+  --font:
+    Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC',
+    'Microsoft YaHei', sans-serif;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
